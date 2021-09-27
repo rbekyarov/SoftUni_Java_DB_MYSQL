@@ -1,0 +1,69 @@
+/*
+**************************** String Functions  *************************************
+
+       1    SUBSTRING(String, Position)
+
+       2    SUBSTRING(String FROM Position FOR Length)
+
+       3    SUBSTRING(String, Position, Length)
+
+  пример    SELECT `article_id`, `author`, `content`,
+                  SUBSTRING(`content`, 1, 200) AS 'Summary'
+             FROM `articles`;
+
+**************************** String REPLACE *************************************
+
+                REPLACE(String, Pattern, Replacement)
+
+            SELECT REPLACE(`title`, 'blood', '*****')
+            AS 'Title'
+            FROM `album`;
+
+            SELECT REPLACE(`title`, 'The', '***')
+            AS 'Title' FROM `books`
+            WHERE SUBSTRING(title, 1, 3) = 'The';
+
+**************************** String Functions *************************************
+
+*******LTRIM & RTRIM – remove spaces from either side of string
+
+LTRIM(String)
+RTRIM(String)
+
+*******
+CHAR_LENGTH – count number of characters
+CHAR_LENGTH(String)
+
+*******
+LENGHT – get number of used bytes (double for Unicode)
+LENGTH(String)
+
+*******
+LEFT & RIGHT – get characters from beginning or end of string
+LEFT(String, Count)           RIGHT(String, Count)
+
+пример:
+SELECT `id`, `start`,
+LEFT(`name`, 3) AS 'Shorthand'
+FROM `games`;
+
+*******
+LOWER & UPPER
+LOWER(String)     UPPER(String)
+
+*******
+REVERSE – reverse order of all characters in string
+REVERSE(String)
+
+*******
+REPEAT – repeat string
+REPEAT(String, Count)
+
+*******
+LOCATE – locate specific pattern (substring) in string
+LOCATE(Pattern, String,[Position])
+
+*******
+INSERT – insert substring at specific position
+INSERT(String, Position, Length, Substring)
+

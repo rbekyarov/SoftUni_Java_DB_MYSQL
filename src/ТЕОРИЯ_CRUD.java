@@ -136,5 +136,9 @@ public class ТЕОРИЯ_CRUD {
  OR department_id = 2;
  SELECT * FROM employees
 
+ /** ********* IF ПРОВЕРКА В SQL ************************************
+
+ IF(currency_code = 'EUR', 'Euro', 'Not Euro')
+           условие         true       false
  */
 }

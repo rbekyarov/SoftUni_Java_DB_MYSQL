@@ -67,3 +67,43 @@ LOCATE(Pattern, String,[Position])
 INSERT – insert substring at specific position
 INSERT(String, Position, Length, Substring)
 
+**************************** Math Functions *************************************
+SELECT PI()
+ABS(Value) - абсолютна стойност
+SQRT(Value) - корен квадратен
+POW(Value, Exponent) - степенуване
+CONV – Converts numbers between different number bases - конвертира между бройни с-ми
+CONV(Value,from_base,to_base)
+ROUND(Value, Precision)
+FLOOR(Value)
+CEILING(Value)
+SIGN(Value)
+RAND()
+RAND(Seed)
+**************************** Date Functions *************************************
+EXTRACT(Part FROM Date)
+TIMESTAMPDIFF(Part, FirstDate, SecondDate)
+
+year, %Y, %y -> YEAR(Date)
+month, %M, %m -> MONTH(Date)
+day, %w, %D -> DAY(Date)
+
+SELECT `employee_id`, `first_name`, `last_name`,
+       TIMESTAMPDIFF(year, `hire_date`, '2017-05-31')
+    AS 'Years In Service'
+  FROM `employees`;
+
+DATE_FORMAT – formats the date value according to the format
+SELECT DATE_FORMAT('2017/05/31', '%Y %b %D') AS 'Date';
+
+SELECT NOW(); -> obtain current date and time
+
+**************************** Wildcards *************************************
+
+WHERE CustomerName LIKE 'a%'; -> Find any values that start with "a"
+WHERE CustomerName LIKE '_r%';-> Find any values that have "r" in second position
+WHERE ContactName LIKE 'a%o'; -> Finds any values that starts with "a" and ends with "o"
+
+REGEXP '[a-c]%'; -> "a", "b", or "c"
+
+

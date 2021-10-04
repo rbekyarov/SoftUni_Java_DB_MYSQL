@@ -78,7 +78,7 @@ ROUND(Value, Precision)
 FLOOR(Value)
 CEILING(Value)
 SIGN(Value)
-RAND()
+by CVRAND()
 RAND(Seed)
 **************************** Date Functions *************************************
 EXTRACT(Part FROM Date)

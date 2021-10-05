@@ -1,0 +1,99 @@
+******************** One-to-many *********************
+
+CREATE TABLE mountains(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(50) NOT NULL
+);
+CREATE TABLE peaks(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  mountain_id INT,
+  CONSTRAINT fk_peaks_mountains
+  FOREIGN KEY (mountain_id)
+  REFERENCES mountains(id));
+
+
+******************** Many-to-Many *********************
+
+CREATE TABLE employees(
+  employee_id INT PRIMARY KEY,
+  employee_name VARCHAR(50)
+);
+
+CREATE TABLE projects(  project_id INT PRIMARY KEY,
+  project_name VARCHAR(50)
+);
+
+CREATE TABLE employees_projects(employee_id INT, project_id INT,
+  CONSTRAINT pk_employees_projects
+  PRIMARY KEY(employee_id, project_id),
+  CONSTRAINT fk_employees_projects_employees
+  FOREIGN KEY(employee_id)
+  REFERENCES employees(employee_id),
+  CONSTRAINT fk_employees_projects_projects
+  FOREIGN KEY(project_id)
+  REFERENCES projects(project_id)
+);
+
+
+******************** One-to-One *********************
+
+CREATE TABLE drivers(
+  driver_id INT PRIMARY KEY,
+  driver_name VARCHAR(50)
+);
+
+CREATE TABLE cars(
+  car_id INT PRIMARY KEY,
+  driver_id INT UNIQUE,
+  CONSTRAINT fk_cars_drivers
+  FOREIGN KEY  (driver_id)
+  REFERENCES drivers(driver_id)
+);
+
+******************** JOINs *********************
+
+SELECT * FROM table_a
+JOIN table_b ON
+table_b.common_column = table_a.common_column
+
+задача:
+SELECT driver_id, vehicle_type,
+  CONCAT(first_name, ' ', last_name) AS driver_name
+  FROM vehicles AS v
+  JOIN campers AS c
+  ON v.driver_id = c.id;
+
+
+******************** Cascade Operations *********************
+
+***********CASCADE DELETE ***********
+
+CREATE TABLE `mountains`(
+`id` INT PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(20) NOT NULL
+);
+CREATE TABLE `peaks`(
+`id` INT PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(20) NOT NULL,
+`mountain_id` INT,
+CONSTRAINT `fk_mountain_id`
+FOREIGN KEY(`mountain_id`)
+REFERENCES `mountains`(`id`)
+ON DELETE CASCADE
+);
+
+
+***********CASCADE UPDATE  ***********
+
+CREATE TABLE drivers(
+  driver_id INT PRIMARY KEY,
+  driver_name VARCHAR(50)
+);
+
+CREATE TABLE cars(
+  car_id INT PRIMARY KEY,
+  driver_id INT,
+  CONSTRAINT fk_car_driver FOREIGN KEY(driver_id)
+  REFERENCES drivers(driver_id) ON UPDATE CASCADE);
+

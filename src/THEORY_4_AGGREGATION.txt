@@ -1,0 +1,24 @@
+
+
+******************** Aggregate Function *************************
+
+COUNT, SUM, MAX, MIN, AVG …
+
+SELECT e.`department_id`, SUM(e.`salary`) AS 'TotalSalary'
+FROM `employees` AS e
+GROUP BY e.`department_id`;
+
+
+******************** Grouping *************************
+
+SELECT e.`job_title`, count(employee_id)
+  FROM `employees` AS e
+GROUP BY e.`job_title`;
+
+
+******************** Having Clause *************************
+
+SELECT e.`department_id`,  SUM(e.salary) AS 'TotalSalary'
+FROM `employees` AS e
+GROUP BY e.`department_id`
+HAVING `TotalSalary`< 25000;

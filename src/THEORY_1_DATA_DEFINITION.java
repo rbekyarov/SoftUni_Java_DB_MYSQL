@@ -1,4 +1,4 @@
-public class ТЕОРИЯ {
+public class THEORY_1_DATA_DEFINITION {
 
    /*
 **************************** Schema КОМАНДИ *************************************

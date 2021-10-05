@@ -1,12 +1,15 @@
+CREATE TABLE camp.`mountains`
+(
+    `id`   INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(45)     NOT NULL
+);
 
-CREATE TABLE camp.`mountains` (
-`id` INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
-`name` VARCHAR(45) NOT NULL);
-CREATE TABLE camp.`peaks` (
-id INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
-`name` VARCHAR(45) NOT NULL,
-mountain_id INT not null ,
-CONSTRAINT fk_mountain_id
-FOREIGN KEY (mountain_id)
-REFERENCES `mountains`(id) ON UPDATE CASCADE
+CREATE TABLE camp.`peaks`
+(
+    id          INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `name`      VARCHAR(45)     NOT NULL,
+    mountain_id INT             not null,
+    CONSTRAINT fk_mountain_id
+        FOREIGN KEY (mountain_id)
+            REFERENCES `mountains` (id) ON UPDATE CASCADE
 );

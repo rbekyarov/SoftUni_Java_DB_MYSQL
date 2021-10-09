@@ -6,4 +6,5 @@ ON e.employee_id = ep.employee_id
 LEFT JOIN   projects AS p
 ON ep.project_id = p.project_id
 WHERE p.name IS NULL
-ORDER BY e.employee_id DESC;
+ORDER BY e.employee_id DESC
+LIMIT 3;

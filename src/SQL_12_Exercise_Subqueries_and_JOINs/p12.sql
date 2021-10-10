@@ -7,5 +7,5 @@ JOIN mountains AS m
 ON m.id = mc.mountain_id
 JOIN peaks AS p
 ON p.mountain_id = m.id
-WHERE c.country_name = 'Bulgaria' AND p.elevation > 2835
+WHERE c.country_code = 'BG' AND p.elevation > 2835
 ORDER BY p.elevation DESC ;

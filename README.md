@@ -1,3 +1,3 @@
-# MySQL
+# SoftUni_Java_DB_MYSQL
 
 THIS IS COURSE JAVA DB - MySQL in SoftUni
